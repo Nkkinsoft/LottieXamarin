@@ -12,14 +12,14 @@
   <a href="https://www.nuget.org/packages/Com.Nkkinsoft.Android.Lottie/"><img src="https://img.shields.io/nuget/v/Com.Nkkinsoft.Android.Lottie?label=NuGet&color=cc3333&logo=nuget" alt="NuGet version"></a>
   <a href="https://www.nuget.org/packages/Com.Nkkinsoft.Android.Lottie/"><img src="https://img.shields.io/nuget/dt/Com.Nkkinsoft.Android.Lottie?color=0d9488&logo=nuget" alt="NuGet downloads"></a>
   <a href="https://github.com/airbnb/lottie-android/releases"><img src="https://img.shields.io/badge/Upstream-6.7.1-14b8a6?logo=airbnb" alt="Upstream version"></a>
-  <a href="https://github.com/Baseflow/LottieXamarin"><img src="https://img.shields.io/badge/Binding-LottieXamarin-661818?logo=xamarin" alt="Binding project"></a>
-  <img src="https://img.shields.io/badge/TFM-net11.0--android-0f1011?logo=dotnet" alt="Target framework">
+  <a href="https://github.com/Nkkinsoft/LottieXamarin"><img src="https://img.shields.io/badge/Binding-LottieXamarin-661818?logo=xamarin" alt="Binding project"></a>
+  <img src="https://img.shields.io/badge/TFM-net10.0--android%20%7C%20net11.0--android-0f1011?logo=dotnet" alt="Target frameworks">
   <img src="https://img.shields.io/badge/C%23-15-0f1011?logo=csharp" alt="C# 15">
   <img src="https://img.shields.io/badge/Nullable-enabled-14b8a6" alt="Nullable enabled">
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-cc3333" alt="License"></a>
 </p>
 
-> **Note:** This is a community fork by **nkkinsoft**. The official Airbnb package is `Com.Airbnb.Android.Lottie`. This fork provides .NET 11 / C# 15 support, modernized bindings, and trimmed-AOT compatibility.
+> **Note:** This is a community fork by **nkkinsoft**. The official Airbnb package is `Com.Airbnb.Android.Lottie`. This fork provides .NET 10/11, C# 15 support, modernized bindings, and trimmed-AOT compatibility.
 
 ---
 
@@ -28,7 +28,7 @@
 | Concern | This Package |
 |---------|--------------|
 | **Upstream parity** | Tracks [lottie-android](https://github.com/airbnb/lottie-android) releases (currently **6.7.1**) |
-| **Modern .NET** | `net11.0-android`, C# 15, primary constructors, `Nullable`/`ImplicitUsings` enabled |
+| **Modern .NET** | `net10.0-android` + `net11.0-android`, C# 15, primary constructors, `Nullable`/`ImplicitUsings` enabled |
 | **Trim-safe** | Annotated for .NET trimming / R8; no reflection surprises in Release AOT |
 | **Async-first** | `Task<T>` overloads for every load operation (`FromAssetFileNameAsync`, `FromJsonStringAsync`, …) |
 | **Zero-conflict** | Single `Metadata.xml` — no duplicate-type conflicts with other AndroidX bindings |
@@ -40,14 +40,14 @@
 
 ```xml
 <!-- PackageReference -->
-<PackageReference Include="Com.Nkkinsoft.Android.Lottie" Version="6.7.1" />
+<PackageReference Include="Com.Nkkinsoft.Android.Lottie" Version="6.7.2" />
 
 <!-- Or via CLI -->
-dotnet add package Com.Nkkinsoft.Android.Lottie --version 6.7.1
+dotnet add package Com.Nkkinsoft.Android.Lottie --version 6.7.2
 ```
 
 **Requirements**
-- .NET 11+ (`net11.0-android`)
+- .NET 10+ (`net10.0-android`) or .NET 11 (`net11.0-android`)
 - Android API 24+ (`minSdkVersion 24`)
 - `AndroidX.AppCompat` 1.8.0+ (transitive)
 - `OkIO` 3.9.0+ (transitive)
@@ -176,10 +176,10 @@ dotnet pack Lottie.Android/Lottie.Android.csproj -c Release -o ./artifacts
 
 | This Package | Upstream (lottie-android) | Notes |
 |--------------|---------------------------|-------|
-| 6.7.1 | 6.7.1 | .NET 11, C# 15, async API |
+| 6.7.2 | 6.7.1 | .NET 10/11, C# 15, async API |
 | 4.2.2 | 4.2.2 | Legacy Xamarin binding |
 
-We follow upstream **minor.patch**; binding improvements increment **build metadata** (e.g., `6.7.1.1`).
+We follow upstream **minor.patch**; binding improvements increment **build metadata** (e.g., `6.7.2.1`).
 
 ---
 
@@ -200,7 +200,7 @@ you may not use this file except in compliance with the License.
 
 ## Contributing
 
-1. Fork the [binding repo](https://github.com/Baseflow/LottieXamarin)
+1. Fork the [binding repo](https://github.com/Nkkinsoft/LottieXamarin)
 2. Update `Directory.Build.props` version
 3. Modernize any generated `.cs` in `Additions/`
 4. Run `dotnet build -c Release` — zero warnings expected
@@ -211,7 +211,7 @@ you may not use this file except in compliance with the License.
 ## Links
 
 - **Upstream:** https://github.com/airbnb/lottie-android
-- **Binding source (original):** https://github.com/Baseflow/LottieXamarin
+- **Binding source (this fork):** https://github.com/Nkkinsoft/LottieXamarin
 - **NuGet (this fork):** https://www.nuget.org/packages/Com.Nkkinsoft.Android.Lottie
-- **Issues:** https://github.com/Baseflow/LottieXamarin/issues
+- **Issues:** https://github.com/Nkkinsoft/LottieXamarin/issues
 - **Sample animations:** https://lottiefiles.com

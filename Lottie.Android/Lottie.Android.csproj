@@ -7,7 +7,7 @@
     <Description>Lottie Android binding for .NET (nkkinsoft fork) — Render After Effects animations natively on Android via Xamarin/.NET for Android. Based on lottie-android 6.7.1.</Description>
     <PackageId>Com.Nkkinsoft.Android.Lottie</PackageId>
     <EnableDefaultItems>false</EnableDefaultItems>
-    <Version>6.7.1</Version>
+    <Version>6.7.2</Version>
 
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <_EnableInterfaceMembers>true</_EnableInterfaceMembers>
@@ -30,9 +30,19 @@
     <PackageTags>lottie;animation;android;xamarin;airbnb;after-effects;bodymovin</PackageTags>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <DebugType>embedded</DebugType>
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
     <Deterministic>true</Deterministic>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <IncludeSymbols>true</IncludeSymbols>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <ProduceReferenceAssembly>false</ProduceReferenceAssembly>
   </PropertyGroup>
 
   <ItemGroup>
