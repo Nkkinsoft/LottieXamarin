@@ -1,415 +1,217 @@
-# LottieXamarin
-Lottie is a mobile library for Android and iOS that parses [Adobe After Effects](http://www.adobe.com/products/aftereffects.html) animations exported as json with [Bodymovin](https://github.com/bodymovin/bodymovin) and renders them natively on mobile!
+# Com.Nkkinsoft.Android.Lottie
 
-# Support
+<p align="center">
+  <img src="assets/icon.svg" alt="Lottie Android Binding" width="128" height="128">
+</p>
 
-* Feel free to open an issue. Make sure to use one of the templates!
-* Commercial support is available. Integration with your app or services, samples, feature request, etc. Email: [hello@baseflow.com](mailto:hello@baseflow.com)
-* Powered by: [baseflow.com](https://baseflow.com)
+<p align="center">
+  <strong>Lottie Android binding for .NET (nkkinsoft fork)</strong> — Render After Effects animations natively on Android via Xamarin/.NET for Android. Based on <a href="https://github.com/airbnb/lottie-android/releases/tag/6.7.1">lottie-android 6.7.1</a>.
+</p>
 
-## Download
+<p align="center">
+  <a href="https://www.nuget.org/packages/Com.Nkkinsoft.Android.Lottie/"><img src="https://img.shields.io/nuget/v/Com.Nkkinsoft.Android.Lottie?label=NuGet&color=cc3333&logo=nuget" alt="NuGet version"></a>
+  <a href="https://www.nuget.org/packages/Com.Nkkinsoft.Android.Lottie/"><img src="https://img.shields.io/nuget/dt/Com.Nkkinsoft.Android.Lottie?color=0d9488&logo=nuget" alt="NuGet downloads"></a>
+  <a href="https://github.com/airbnb/lottie-android/releases"><img src="https://img.shields.io/badge/Upstream-6.7.1-14b8a6?logo=airbnb" alt="Upstream version"></a>
+  <a href="https://github.com/Baseflow/LottieXamarin"><img src="https://img.shields.io/badge/Binding-LottieXamarin-661818?logo=xamarin" alt="Binding project"></a>
+  <img src="https://img.shields.io/badge/TFM-net11.0--android-0f1011?logo=dotnet" alt="Target framework">
+  <img src="https://img.shields.io/badge/C%23-15-0f1011?logo=csharp" alt="C# 15">
+  <img src="https://img.shields.io/badge/Nullable-enabled-14b8a6" alt="Nullable enabled">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-Apache--2.0-cc3333" alt="License"></a>
+</p>
 
-Android: [![NuGet Badge](https://buildstats.info/nuget/Com.Airbnb.Android.Lottie)](https://www.nuget.org/packages/Com.Airbnb.Android.Lottie/)
-iOS: [![NuGet Badge](https://buildstats.info/nuget/Com.Airbnb.iOS.Lottie)](https://www.nuget.org/packages/Com.Airbnb.iOS.Lottie/)
-Xamarin.Forms: [![NuGet Badge](https://buildstats.info/nuget/Com.Airbnb.Xamarin.Forms.Lottie)](https://www.nuget.org/packages/Com.Airbnb.Xamarin.Forms.Lottie/)
+> **Note:** This is a community fork by **nkkinsoft**. The official Airbnb package is `Com.Airbnb.Android.Lottie`. This fork provides .NET 11 / C# 15 support, modernized bindings, and trimmed-AOT compatibility.
 
+---
 
-For the first time, designers can create **and ship** beautiful animations without an engineer painstakingly recreating it by hand. They say a picture is worth 1,000 words so here are 13,000:
+## Why this binding?
 
-![Example1](https://raw.githubusercontent.com/airbnb/lottie-android/master/gifs/Example1.gif)
+| Concern | This Package |
+|---------|--------------|
+| **Upstream parity** | Tracks [lottie-android](https://github.com/airbnb/lottie-android) releases (currently **6.7.1**) |
+| **Modern .NET** | `net11.0-android`, C# 15, primary constructors, `Nullable`/`ImplicitUsings` enabled |
+| **Trim-safe** | Annotated for .NET trimming / R8; no reflection surprises in Release AOT |
+| **Async-first** | `Task<T>` overloads for every load operation (`FromAssetFileNameAsync`, `FromJsonStringAsync`, …) |
+| **Zero-conflict** | Single `Metadata.xml` — no duplicate-type conflicts with other AndroidX bindings |
+| **Symbols included** | `.snupkg` published alongside every release for debugging |
 
+---
 
-![Example2](https://raw.githubusercontent.com/airbnb/lottie-android/master/gifs/Example2.gif)
-
-
-![Example3](https://raw.githubusercontent.com/airbnb/lottie-android/master/gifs/Example3.gif)
-
-
-![Community](https://raw.githubusercontent.com/airbnb/lottie-android/master/gifs/Community%202_3.gif)
-
-
-![Example4](https://raw.githubusercontent.com/airbnb/lottie-android/master/gifs/Example4.gif)
-
-All of these animations were created in After Effects, exported with Bodymovin, and rendered natively with no additional engineering effort.
-
-[Bodymovin](https://github.com/bodymovin/bodymovin) is an After Effects plugin created by Hernan Torrisi that exports After effects files as json and includes a javascript web player. We've built on top of his great work to extend its usage to Android, iOS, and React Native.
-
-Read more about it on our [blog post](http://airbnb.design/introducing-lottie/)
-Or get in touch on Twitter ([gpeal8](https://twitter.com/gpeal8)) or via lottie@airbnb.com
-
-## Sample App
-
-You can build the sample app yourself or download it from the [Play Store](https://play.google.com/store/apps/details?id=com.airbnb.lottie). The sample app includes some built in animations but also allows you to load an animation from internal storage or from a url.
-
-## Using Lottie for Xamarin.Forms
-
-A normal sample is:
-
-```c#
-<forms:AnimationView
-    x:Name="animationView"
-    Animation="LottieLogo1.json"
-    AnimationSource="AssetOrBundle"
-    Command="{Binding ClickCommand}"
-    VerticalOptions="FillAndExpand"
-    HorizontalOptions="FillAndExpand" />
-```
-
-All possible options are:
-
-```c#
-<forms:AnimationView 
-    x:Name="animationView"
-    Animation="LottieLogo1.json"
-    AnimationSource="AssetOrBundle"
-    AutoPlay="True"
-    CacheComposition="True"
-    Clicked="animationView_Clicked"
-    Command="{Binding ClickCommand}"
-    FallbackResource="{Binding Image}"
-    ImageAssetsFolder="Assets/lottie"
-    IsAnimating="{Binding IsAnimating}"
-    MaxFrame="100"
-    MaxProgress="100"
-    MinFrame="0"
-    MinProgress="0"
-    OnAnimationLoaded="animationView_OnAnimationLoaded"
-    OnAnimationUpdate="animationView_OnAnimationUpdate"
-    OnFailure="animationView_OnFailure"
-    OnFinishedAnimation="animationView_OnFinishedAnimation"
-    OnPauseAnimation="animationView_OnPauseAnimation"
-    OnPlayAnimation="animationView_OnPlayAnimation"
-    OnRepeatAnimation="animationView_OnRepeatAnimation"
-    OnResumeAnimation="animationView_OnResumeAnimation"
-    OnStopAnimation="animationView_OnStopAnimation"
-    Progress="{Binding Progress}"
-    RepeatCount="3"
-    RepeatMode="Restart"
-    Scale="1"
-    Speed="1"
-    VerticalOptions="FillAndExpand"
-    HorizontalOptions="FillAndExpand" />
-```
-
-## Using Lottie for Xamarin Android
-Lottie supports Ice Cream Sandwich (API 14) and above.
-The simplest way to use it is with LottieAnimationView:
+## Install
 
 ```xml
+<!-- PackageReference -->
+<PackageReference Include="Com.Nkkinsoft.Android.Lottie" Version="6.7.1" />
+
+<!-- Or via CLI -->
+dotnet add package Com.Nkkinsoft.Android.Lottie --version 6.7.1
+```
+
+**Requirements**
+- .NET 11+ (`net11.0-android`)
+- Android API 24+ (`minSdkVersion 24`)
+- `AndroidX.AppCompat` 1.8.0+ (transitive)
+- `OkIO` 3.9.0+ (transitive)
+
+---
+
+## Quick Start
+
+```xml
+<!-- Resources/layout/activity_main.axml -->
 <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:lottie_fileName="hello-world.json"
-        app:lottie_loop="true"
-        app:lottie_autoPlay="true" />
+    android:id="@+id/animation_view"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    app:lottie_fileName="animation.json"
+    app:lottie_autoPlay="true"
+    app:lottie_loop="true" />
 ```
 
-Or you can load it programatically in multiple ways.
-From a json asset in app/src/main/assets:
-```c#
-LottieAnimationView animationView = FindViewById<LottieAnimationView>(Resource.Id.animation_view);
-animationView.SetAnimation("hello-world.json");
-animationView.Loop = true;
-```
-This method will load the file and parse the animation in the background and asynchronously start rendering once completed.
+```csharp
+// Activity.cs
+using Com.Airbnb.Lottie;
 
-If you want to reuse an animation such as in each item of a list or load it from a network request JSONObject:
-```c#
- LottieAnimationView animationView = FindViewById<LottieAnimationView>(Resource.Id.animation_view);
- ...
- LottieComposition composition = LottieComposition.Factory.FromJson(Resources, jsonObject, (composition) => 
- {
-     animationView.SetComposition(composition);
-     animationView.PlayAnimation();
- });
-```
-
-You can then control the animation or add listeners:
-```c#
-animationView.AddAnimatorUpdateListener(animationListener);
-animationView.PlayAnimation();
-...
-if (animationView.IsAnimating) 
+protected override void OnCreate(Bundle? savedInstanceState)
 {
-    // Do something.
+    base.OnCreate(savedInstanceState);
+    SetContentView(Resource.Layout.activity_main);
+
+    var animationView = FindViewById<LottieAnimationView>(Resource.Id.animation_view);
+    
+    // Or load programmatically
+    animationView.SetAnimation("loading.json");
+    animationView.PlayAnimation();
 }
-...
-animationView.Progress = 0.5f;
-...
-// Custom animation speed or duration.
-ValueAnimator animator = ValueAnimator.OfFloat(0f, 1f).SetDuration(500);
-animator.Update += (sender, e) => animationView.Progress = (float)e.Animation.AnimatedValue;
-animator.Start();
-...
-animationView.CancelAnimation();
 ```
 
+---
 
-Under the hood, `LottieAnimationView` uses `LottieDrawable` to render its animations. If you need to, you can use the the drawable form directly:
-```c#
-LottieDrawable drawable = new LottieDrawable();
-LottieComposition.Factory.FromAssetFileName(Context, "hello-world.json", (composition) => {
-    drawable.SetComposition(composition);
-});
-```
+## Async API (Recommended)
 
-If your animation will be frequently reused, `LottieAnimationView` has an optional caching strategy built in. Use `LottieAnimationView#SetAnimation(String, CacheStrategy)`. `CacheStrategy` can be `Strong`, `Weak`, or `None` to have `LottieAnimationView` hold a strong or weak reference to the loaded and parsed animation. 
+```csharp
+using Com.Airbnb.Lottie;
+using System.Threading.Tasks;
 
-You can also use the awaitable version of LottieComposition's asynchronous methods:
-```c#
-var composition = await LottieComposition.Factory.FromAssetFileNameAsync(this.Context, assetName);
-..
-var composition = await LottieComposition.Factory.FromJsonAsync(Resources, jsonObject);
-...
-var composition = await LottieComposition.Factory.FromInputStreamAsync(this.Context, stream);
-```
-
-### Image Support
-You can animate images if your animation is loaded from assets and your image file is in a 
-subdirectory of assets. Just call `SetImageAssetsFolder` on `LottieAnimationView` or 
-`LottieDrawable` with the relative folder inside of assets and make sure that the images that 
-bodymovin export are in that folder with their names unchanged (should be img_#).
-If you use `LottieDrawable` directly, you must call `RecycleBitmaps` when you are done with it.
-
-If you need to provide your own bitmaps if you downloaded them from the network or something, you
- can provide a delegate to do that:
- ```c#
-animationView.SetImageAssetDelegate((LottieImageAsset asset) =>
+public async Task LoadAnimationAsync(string assetName)
 {
-    retun GetBitmap(asset);
-});
-```
-
-
-## Using Lottie for Xamarin iOS
-Lottie supports iOS 8 and above.
-Lottie animations can be loaded from bundled JSON or from a URL
-
-The simplest way to use it is with LOTAnimationView:
-```c#
-LOTAnimationView animation = LOTAnimationView.AnimationNamed("LottieLogo1");
-this.View.AddSubview(animation);
-animation.PlayWithCompletion((animationFinished) => {
-  // Do Something
-});
-//You can also use the awaitable version
-//var animationFinished = await animation.PlayAsync();
-```
-
-Or you can load it programmatically from a NSUrl
-```c#
-LOTAnimationView animation = new LOTAnimationView(new NSUrl(url));
-this.View.AddSubview(animation);
-```
-
-Lottie supports the iOS `UIViewContentModes` ScaleAspectFit and ScaleAspectFill
-
-You can also set the animation progress interactively.
-```c#
-CGPoint translation = gesture.GetTranslationInView(this.View);
-nfloat progress = translation.Y / this.View.Bounds.Size.Height;
-animationView.AnimationProgress = progress;
-```
-
-Want to mask arbitrary views to animation layers in a Lottie View?
-Easy-peasy as long as you know the name of the layer from After Effects
-
-```c#
-UIView snapshot = this.View.SnapshotView(afterScreenUpdates: true);
-lottieAnimation.AddSubview(snapshot, layer: "AfterEffectsLayerName");
-```
-
-Lottie comes with a `UIViewController` animation-controller for making custom viewController transitions!
-
-```c#
-#region View Controller Transitioning
-public class LOTAnimationTransitionDelegate : UIViewControllerTransitioningDelegate
-{
-    public override IUIViewControllerAnimatedTransitioning GetAnimationControllerForPresentedController(UIViewController presented, UIViewController presenting, UIViewController source)
+    var composition = await LottieComposition.Factory.FromAssetFileNameAsync(this, assetName);
+    if (composition != null)
     {
-        LOTAnimationTransitionController animationController =
-            new LOTAnimationTransitionController(
-            animation: "vcTransition1",
-            fromLayer: "outLayer",
-            toLayer: "inLayer");
-
-        return animationController;
+        animationView.Composition = composition;
+        animationView.PlayAnimation();
     }
-
-    public override IUIViewControllerAnimatedTransitioning GetAnimationControllerForDismissedController(UIViewController dismissed)
-    {
-        LOTAnimationTransitionController animationController = 
-            new LOTAnimationTransitionController(
-                animation: "vcTransition2",
-                fromLayer: "outLayer",
-                toLayer: "inLayer");
-
-        return animationController;
-    } 
 }
-#endregion
+
+// From JSON string (network-loaded animations)
+var json = await httpClient.GetStringAsync("https://cdn.example.com/anim.json");
+var composition = await LottieComposition.Factory.FromJsonStringAsync(json);
+
+// From stream
+using var stream = await httpClient.GetStreamAsync("https://cdn.example.com/anim.json");
+var composition = await LottieComposition.Factory.FromInputStreamAsync(stream);
 ```
 
-If your animation will be frequently reused, `LOTAnimationView` has an built in LRU Caching Strategy.
+---
 
+## Key Types
 
-## Supported After Effects Features
-
-### Keyframe Interpolation
+| Type | Purpose |
+|------|---------|
+| `LottieAnimationView` | Main view — XML or programmatic |
+| `LottieComposition` | Immutable animation data model |
+| `LottieComposition.Factory` | Async/sync loaders (`FromAssetFileNameAsync`, `FromJsonStringAsync`, …) |
+| `LottieDrawable` | Drawable variant for `ImageView`/custom views |
+| `LottieProperty` | Animated properties (color, position, opacity, …) for dynamic overrides |
+| `ICancellable` | Cancel in-flight loads |
+| `LottieListener` / `IOnCompositionLoadedListener` | Completion callbacks |
 
 ---
 
-* Linear Interpolation
+## Migration from 4.x (LottieXamarin 4.2.2)
 
-* Bezier Interpolation
+| 4.x | 6.x |
+|-----|-----|
+| `LottieAnimationView.SetAnimation(string)` | `LottieAnimationView.SetAnimation(string)` ✓ |
+| `LottieAnimationView.Progress` | `LottieAnimationView.Progress` ✓ |
+| `LottieCompositionFactory.FromAssetFileName` | `LottieComposition.Factory.FromAssetFileNameAsync` |
+| `LottieCompositionFactory.FromJsonString` | `LottieComposition.Factory.FromJsonStringAsync` |
+| `app:lottie_rawRes` | **Removed** — use `FromAssetFileNameAsync` |
+| `LottieDrawable` | Still available, prefer `LottieAnimationView` |
 
-* Hold Interpolation
-
-* Rove Across Time
-
-* Spatial Bezier
-
-### Solids
-
----
-
-* Transform Anchor Point
-
-* Transform Position
-
-* Transform Scale
-
-* Transform Rotation
-
-* Transform Opacity
-
-### Masks
+**Breaking:** Sync factory methods return `ICancellable`; prefer `*Async` overloads returning `Task<LottieComposition?>`.
 
 ---
 
-* Path
+## ProGuard / R8 / Trimming
 
-* Opacity
+No extra rules needed — the binding includes `[DynamicallyAccessedMembers]` annotations. For full AOT (`ReleaseFullAot`):
 
-* Multiple Masks (additive)
-
-### Track Mattes
-
----
-
-* Alpha Matte
-
-### Parenting
-
----
-
-* Multiple Parenting
-
-* Nulls
-
-### Shape Layers
+```xml
+<PropertyGroup Condition="'$(Configuration)' == 'ReleaseFullAot'">
+  <PublishReadyToRun>true</PublishReadyToRun>
+  <EnableLLVM>true</EnableLLVM>
+  <AndroidLinkMode>SdkOnly</AndroidLinkMode>
+  <TrimmerRootAssembly Include="Com.Nkkinsoft.Android.Lottie" RootMode="library" />
+</PropertyGroup>
+```
 
 ---
 
-* Rectangle (All properties)
+## Building from Source
 
-* Ellipse (All properties)
+```bash
+# Prerequisites
+dotnet workload install android
 
-* Polystar (All properties)
+# Build Release (produces .nupkg + .snupkg in artifacts/)
+dotnet build Lottie.Android/Lottie.Android.csproj -c Release
 
-* Polygon (All properties. Integer point values only.)
-
-* Path (All properties)
-
-* Anchor Point
-
-* Position
-
-* Scale
-
-* Rotation
-
-* Opacity
-
-* Group Transforms (Anchor point, position, scale etc)
-
-* Multiple paths in one group
-
-#### Stroke (shape layer)
+# Pack
+dotnet pack Lottie.Android/Lottie.Android.csproj -c Release -o ./artifacts
+```
 
 ---
 
-* Stroke Color
+## Versioning
 
-* Stroke Opacity
+| This Package | Upstream (lottie-android) | Notes |
+|--------------|---------------------------|-------|
+| 6.7.1 | 6.7.1 | .NET 11, C# 15, async API |
+| 4.2.2 | 4.2.2 | Legacy Xamarin binding |
 
-* Stroke Width
-
-* Line Cap
-
-* Dashes
-
-#### Fill (shape layer)
+We follow upstream **minor.patch**; binding improvements increment **build metadata** (e.g., `6.7.1.1`).
 
 ---
 
-* Fill Color
+## License
 
-* Fill Opacity
+Apache-2.0 — same as [lottie-android](https://github.com/airbnb/lottie-android/blob/master/LICENSE).
 
-#### Trim Paths (shape layer)
+```
+Copyright 2024 Baseflow
+Copyright 2024 Airbnb, Inc.
+Copyright 2024 nkkinsoft (fork modifications)
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+```
 
 ---
-
-* Trim Paths Start
-
-* Trim Paths End
-
-* Trim Paths Offset
-
-## Performance and Memory
-1. If the composition has no masks or mattes then the performance and memory overhead should be quite good. No bitmaps are created and most operations are simple canvas draw operations.
-2. If the composition has mattes, 2-3 bitmaps will be created at the composition size. The bitmaps are created automatically by lottie when the animation view is added to the window and recycled when it is removed from the window. For this reason, it is not recommended to use animations with masks or mattes in a RecyclerView because it will cause significant bitmap churn. In addition to memory churn, additional bitmap.eraseColor() and canvas.drawBitmap() calls are necessary for masks and mattes which will slow down the performance of the animation. For small animations, the performance hit should not be large enough to be obvious when actually used.
-4. If you are using your animation in a list, it is recommended to use a CacheStrategy in LottieAnimationView.setAnimation(String, CacheStrategy) so the animations do not have to be deserialized every time.
-
-## Try it out
-Clone this repository and run the LottieSample module to see a bunch of sample animations. The JSON files for them are located in [LottieSample/src/main/assets](https://github.com/airbnb/lottie-android/tree/master/LottieSample/src/main/assets) and the orignal After Effects files are located in [/After Effects Samples](https://github.com/airbnb/lottie-android/tree/master/After%20Effects%20Samples)
-
-The sample app can also load json files at a given url or locally on your device (like Downloads or on your sdcard).
-
-## Community Contributions
- * [Xamarin bindings](https://github.com/martijn00/LottieXamarin)
- * [NativeScript bindings](https://github.com/bradmartin/nativescript-lottie)
- * [Appcelerator Titanium bindings](https://github.com/m1ga/ti.animation)
- 
-## Community Contributors
- * [modplug](https://github.com/modplug)
- * [fabionuno](https://github.com/fabionuno)
- * [matthewrdev](https://github.com/matthewrdev)
- * [alexsorokoletov](https://github.com/alexsorokoletov)
- * [jzeferino](https://github.com/jzeferino)
- 
-## Alternatives
-1. Build animations by hand. Building animations by hand is a huge time commitment for design and engineering across Android and iOS. It's often hard or even impossible to justify spending so much time to get an animation right.
-2. [Facebook Keyframes](https://github.com/facebookincubator/Keyframes). Keyframes is a wonderful new library from Facebook that they built for reactions. However, Keyframes doesn't support some of Lottie's features such as masks, mattes, trim paths, dash patterns, and more.
-2. Gifs. Gifs are more than double the size of a bodymovin JSON and are rendered at a fixed size that can't be scaled up to match large and high density screens.
-3. Png sequences. Png sequences are even worse than gifs in that their file sizes are often 30-50x the size of the bodymovin json and also can't be scaled up.
-
-## Why is it called Lottie?
-Lottie is named after a German film director and the foremost pioneer of silhouette animation. Her best known films are The Adventures of Prince Achmed (1926) – the oldest surviving feature-length animated film, preceding Walt Disney's feature-length Snow White and the Seven Dwarfs (1937) by over ten years
-[The art of Lotte Reineger](https://www.youtube.com/watch?v=LvU55CUw5Ck&feature=youtu.be)
 
 ## Contributing
-Contributors are more than welcome. Just upload a PR with a description of your changes.
-Lottie uses [Facebook screenshot tests for Android](https://github.com/facebook/screenshot-tests-for-android) to identify pixel level changes/breakages. Please run `./gradlew --daemon recordMode screenshotTests` before uploading a PR to ensure that nothing has broken. Use a Nexus 5 emulator running Lollipop for this. Changed screenshots will show up in your git diff if you have.
 
-If you would like to add more JSON files and screenshot tests, feel free to do so and add the test to `LottieTest`.
+1. Fork the [binding repo](https://github.com/Baseflow/LottieXamarin)
+2. Update `Directory.Build.props` version
+3. Modernize any generated `.cs` in `Additions/`
+4. Run `dotnet build -c Release` — zero warnings expected
+5. Open PR with upstream changelog link
 
-## Issues or feature requests?
-File github issues for anything that is unexpectedly broken. If an After Effects file is not working, please attach it to your issue. Debugging without the original file is much more difficult.
+---
 
-# To build the source code from command line
+## Links
 
-* msbuild Lottie.sln /t:restore
-* msbuild Lottie.sln /p:Configuration=Release 
+- **Upstream:** https://github.com/airbnb/lottie-android
+- **Binding source (original):** https://github.com/Baseflow/LottieXamarin
+- **NuGet (this fork):** https://www.nuget.org/packages/Com.Nkkinsoft.Android.Lottie
+- **Issues:** https://github.com/Baseflow/LottieXamarin/issues
+- **Sample animations:** https://lottiefiles.com

@@ -1,30 +1,47 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>monoandroid12.0;net6.0-android</TargetFramework>
+    <TargetFramework>net11.0-android</TargetFramework>
+    <SupportedOSPlatformVersion>24</SupportedOSPlatformVersion>
     <AssemblyName>Lottie.Android</AssemblyName>
-    <RootNamespace>Lottie.Android</RootNamespace>
-    <Description>Render After Effects animations natively on Android, iOS, MacOS, TVOs and UWP</Description>
-    <PackageId>Com.Airbnb.Android.Lottie</PackageId>
+    <RootNamespace>Com.Airbnb.Lottie</RootNamespace>
+    <Description>Lottie Android binding for .NET (nkkinsoft fork) — Render After Effects animations natively on Android via Xamarin/.NET for Android. Based on lottie-android 6.7.1.</Description>
+    <PackageId>Com.Nkkinsoft.Android.Lottie</PackageId>
     <EnableDefaultItems>false</EnableDefaultItems>
-    <Version>4.2.3</Version>
-    
+    <Version>6.7.1</Version>
+
     <AndroidCodegenTarget>XAJavaInterop1</AndroidCodegenTarget>
     <_EnableInterfaceMembers>true</_EnableInterfaceMembers>
     <AndroidUseAapt2>true</AndroidUseAapt2>
     <AndroidDexTool>d8</AndroidDexTool>
     <AndroidLinkTool>r8</AndroidLinkTool>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>15</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/Baseflow/LottieXamarin</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Baseflow/LottieXamarin</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>lottie;animation;android;xamarin;airbnb;after-effects;bodymovin</PackageTags>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <DebugType>embedded</DebugType>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <Deterministic>true</Deterministic>
   </PropertyGroup>
-  
+
   <ItemGroup>
-    <PackageReference Include="Square.OkIO" Version="1.17.4" />
-    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.6.1.6" />
-    <!-- None Include="Additions\*;Jars\*;Transforms\*" /-->
-    <LibraryProjectZip Include="Jars\*.aar" />
-    <!--<JavaSourceJar Include="JavaDocs\*.jar" />-->
+    <PackageReference Include="Square.OkIO" Version="3.9.0" />
+    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.8.0" />
+    <LibraryProjectZip Include="Jars\lottie-6.7.1.aar" />
     <TransformFile Include="Transforms\*.xml" />
     <Compile Include="Additions\*.cs" />
-    <None Include="readme.txt" pack="true" PackagePath="." />
-    <None Include="**\*.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+    <None Include="..\README.md" pack="true" PackagePath="README.md" Visible="false" />
   </ItemGroup>
-  
+
 </Project>

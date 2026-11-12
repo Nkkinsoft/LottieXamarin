@@ -1,0 +1,284 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Lottie Android Binding - Brand tokens for Com.Airbnb.Android.Lottie NuGet package. Animation identity meets developer-tool precision.",
+
+  "primitive": {
+    "$description": "Lottie brand palette - OKLCH generated for perceptual uniformity",
+
+    "lottie-coral": {
+      "50":  { "$type": "color", "$value": "#fef7f7" },
+      "100": { "$type": "color", "$value": "#fdeaea" },
+      "200": { "$type": "color", "$value": "#fad5d5" },
+      "300": { "$type": "color", "$value": "#f5b0b0" },
+      "400": { "$type": "color", "$value": "#ee7c7c" },
+      "500": { "$type": "color", "$value": "#e55151" },
+      "600": { "$type": "color", "$value": "#cc3333" },
+      "700": { "$type": "color", "$value": "#a32626" },
+      "800": { "$type": "color", "$value": "#821e1e" },
+      "900": { "$type": "color", "$value": "#661818" },
+      "950": { "$type": "color", "$value": "#380e0e" }
+    },
+
+    "lottie-teal": {
+      "50":  { "$type": "color", "$value": "#f0fdfa" },
+      "100": { "$type": "color", "$value": "#ccfbf1" },
+      "200": { "$type": "color", "$value": "#99f6e4" },
+      "300": { "$type": "color", "$value": "#5eead4" },
+      "400": { "$type": "color", "$value": "#2dd4bf" },
+      "500": { "$type": "color", "$value": "#14b8a6" },
+      "600": { "$type": "color", "$value": "#0d9488" },
+      "700": { "$type": "color", "$value": "#0f766e" },
+      "800": { "$type": "color", "$value": "#115e59" },
+      "900": { "$type": "color", "$value": "#134e4a" },
+      "950": { "$type": "color", "$value": "#042f2e" }
+    },
+
+    "dark-canvas": {
+      "950": { "$type": "color", "$value": "#08090a" },
+      "900": { "$type": "color", "$value": "#0f1011" },
+      "800": { "$type": "color", "$value": "#191a1b" },
+      "700": { "$type": "color", "$value": "#28282c" }
+    },
+
+    "light-canvas": {
+      "50":  { "$type": "color", "$value": "#f7f8f8" },
+      "100": { "$type": "color", "$value": "#f3f4f5" },
+      "200": { "$type": "color", "$value": "#e6e6e6" },
+      "300": { "$type": "color", "$value": "#d0d6e0" }
+    }
+  },
+
+  "semantic": {
+    "$description": "Lottie binding semantic tokens - purpose-based aliases",
+
+    "brand": {
+      "primary":     { "$type": "color", "$value": "{primitive.lottie-coral.500}", "$description": "Lottie coral - primary brand" },
+      "primary-hover": { "$type": "color", "$value": "{primitive.lottie-coral.600}", "$description": "Darker coral for hover" },
+      "primary-light": { "$type": "color", "$value": "{primitive.lottie-coral.100}", "$description": "Light coral for backgrounds" },
+      "secondary":   { "$type": "color", "$value": "{primitive.lottie-teal.500}", "$description": "Lottie teal - secondary brand" },
+      "secondary-hover": { "$type": "color", "$value": "{primitive.lottie-teal.600}", "$description": "Darker teal for hover" }
+    },
+
+    "surface": {
+      "page":     { "$type": "color", "$value": "{primitive.dark-canvas.950}" },
+      "panel":    { "$type": "color", "$value": "{primitive.dark-canvas.900}" },
+      "card":     { "$type": "color", "$value": "{primitive.dark-canvas.800}" },
+      "elevated": { "$type": "color", "$value": "{primitive.dark-canvas.700}" },
+      "light-page":  { "$type": "color", "$value": "{primitive.light-canvas.50}" },
+      "light-panel": { "$type": "color", "$value": "{primitive.light-canvas.100}" },
+      "light-card":  { "$type": "color", "$value": "{primitive.white}" }
+    },
+
+    "text": {
+      "primary":   { "$type": "color", "$value": "#f7f8f8", "$description": "Near-white, prevents eye strain on dark" },
+      "secondary": { "$type": "color", "$value": "#d0d6e0", "$description": "Cool silver-gray for body" },
+      "tertiary":  { "$type": "color", "$value": "#8a8f98", "$description": "Muted gray for placeholders" },
+      "muted":     { "$type": "color", "$value": "#62666d", "$description": "Most subdued - timestamps, disabled" },
+      "light-primary":   { "$type": "color", "$value": "#0f1011" },
+      "light-secondary": { "$type": "color", "$value": "#34343a" },
+      "light-tertiary":  { "$type": "color", "$value": "#62666d" },
+      "on-brand":        { "$type": "color", "$value": "#ffffff" }
+    },
+
+    "border": {
+      "subtle":  { "$type": "color", "$value": "rgba(255,255,255,0.05)", "$description": "Ultra-subtle border" },
+      "default": { "$type": "color", "$value": "rgba(255,255,255,0.08)", "$description": "Standard border" },
+      "strong":  { "$type": "color", "$value": "#23252a", "$description": "Solid dark border for emphasis" },
+      "brand":   { "$type": "color", "$value": "{semantic.brand.primary}", "$description": "Brand coral border" },
+      "light-subtle":  { "$type": "color", "$value": "#e6e6e6" },
+      "light-default": { "$type": "color", "$value": "#d0d6e0" }
+    },
+
+    "action": {
+      "primary":       { "$type": "color", "$value": "{semantic.brand.primary}", "$description": "Primary CTA - coral" },
+      "primary-hover": { "$type": "color", "$value": "{semantic.brand.primary-hover}" },
+      "secondary":     { "$type": "color", "$value": "rgba(255,255,255,0.04)" },
+      "secondary-hover": { "$type": "color", "$value": "rgba(255,255,255,0.08)" },
+      "ghost":         { "$type": "color", "$value": "rgba(255,255,255,0.02)" },
+      "ghost-hover":   { "$type": "color", "$value": "rgba(255,255,255,0.05)" }
+    }
+  },
+
+  "component": {
+    "$description": "Component-scoped tokens for README, icon, package presentation",
+
+    "icon": {
+      "bg":           { "$type": "color", "$value": "{semantic.brand.primary}" },
+      "fg":           { "$type": "color", "$value": "#ffffff" },
+      "accent":       { "$type": "color", "$value": "{semantic.brand.secondary}" }
+    },
+
+    "badge": {
+      "version-bg":   { "$type": "color", "$value": "{primitive.lottie-coral.100}" },
+      "version-text": { "$type": "color", "$value": "{primitive.lottie-coral.700}" },
+      "nuget-bg":     { "$type": "color", "$value": "{primitive.lottie-teal.100}" },
+      "nuget-text":   { "$type": "color", "$value": "{primitive.lottie-teal.700}" },
+      "platform-bg":  { "$type": "color", "$value": "rgba(255,255,255,0.08)" },
+      "platform-text": { "$type": "color", "$value": "#d0d6e0" }
+    },
+
+    "code": {
+      "bg":     { "$type": "color", "$value": "#0f1011" },
+      "text":   { "$type": "color", "$value": "#d0d6e0" },
+      "keyword": { "$type": "color", "$value": "#7170ff" },
+      "string":  { "$type": "color", "$value": "#10b981" },
+      "comment": { "$type": "color", "$value": "#62666d" },
+      "number":  { "$type": "color", "$value": "#fbbf24" }
+    }
+  },
+
+  "dark": {
+    "$description": "Dark mode overrides (already dark-native)",
+    "surface": {
+      "page":     { "$type": "color", "$value": "{primitive.dark-canvas.950}" },
+      "panel":    { "$type": "color", "$value": "{primitive.dark-canvas.900}" },
+      "card":     { "$type": "color", "$value": "{primitive.dark-canvas.800}" },
+      "elevated": { "$type": "color", "$value": "{primitive.dark-canvas.700}" }
+    },
+    "text": {
+      "primary":   { "$type": "color", "$value": "#f7f8f8" },
+      "secondary": { "$type": "color", "$value": "#d0d6e0" },
+      "tertiary":  { "$type": "color", "$value": "#8a8f98" },
+      "muted":     { "$type": "color", "$value": "#62666d" }
+    },
+    "border": {
+      "subtle":  { "$type": "color", "$value": "rgba(255,255,255,0.05)" },
+      "default": { "$type": "color", "$value": "rgba(255,255,255,0.08)" },
+      "strong":  { "$type": "color", "$value": "#23252a" }
+    }
+  },
+
+  "light": {
+    "$description": "Light mode overrides for documentation/sites",
+    "surface": {
+      "page":     { "$type": "color", "$value": "{primitive.light-canvas.50}" },
+      "panel":    { "$type": "color", "$value": "{primitive.light-canvas.100}" },
+      "card":     { "$type": "color", "$value": "#ffffff" },
+      "elevated": { "$type": "color", "$value": "{primitive.light-canvas.200}" }
+    },
+    "text": {
+      "primary":   { "$type": "color", "$value": "#0f1011" },
+      "secondary": { "$type": "color", "$value": "#34343a" },
+      "tertiary":  { "$type": "color", "$value": "#62666d" },
+      "muted":     { "$type": "color", "$value": "#8a8f98" }
+    },
+    "border": {
+      "subtle":  { "$type": "color", "$value": "#e6e6e6" },
+      "default": { "$type": "color", "$value": "#d0d6e0" },
+      "strong":  { "$type": "color", "$value": "#23252a" }
+    },
+    "action": {
+      "primary":       { "$type": "color", "$value": "{primitive.lottie-coral.600}" },
+      "primary-hover": { "$type": "color", "$value": "{primitive.lottie-coral.700}" },
+      "secondary":     { "$type": "color", "$value": "#f3f4f5" },
+      "secondary-hover": { "$type": "color", "$value": "#e6e6e6" }
+    }
+  },
+
+  "typography": {
+    "$description": "Typography tokens for brand presentation",
+
+    "fontFamily": {
+      "primary": { "$type": "fontFamily", "$value": "Inter Variable, SF Pro Display, -apple-system, system-ui, Segoe UI, Roboto, sans-serif" },
+      "mono":    { "$type": "fontFamily", "$value": "Berkeley Mono, ui-monospace, SF Mono, Menlo, monospace" }
+    },
+
+    "fontWeight": {
+      "light":       { "$type": "fontWeight", "$value": "300" },
+      "regular":     { "$type": "fontWeight", "$value": "400" },
+      "medium":      { "$type": "fontWeight", "$value": "510" },
+      "semibold":    { "$type": "fontWeight", "$value": "590" }
+    },
+
+    "fontFeatureSettings": {
+      "default": { "$type": "fontFeatureSettings", "$value": "\"cv01\", \"ss03\"" }
+    },
+
+    "scale": {
+      "display-xl":  { "$type": "dimension", "$value": "72px",    "$description": "Hero headlines" },
+      "display-lg":  { "$type": "dimension", "$value": "64px",    "$description": "Secondary hero" },
+      "display":     { "$type": "dimension", "$value": "48px",    "$description": "Section headlines" },
+      "h1":          { "$type": "dimension", "$value": "32px",    "$description": "Major section titles" },
+      "h2":          { "$type": "dimension", "$value": "24px",    "$description": "Sub-section headings" },
+      "h3":          { "$type": "dimension", "$value": "20px",    "$description": "Feature titles" },
+      "body-lg":     { "$type": "dimension", "$value": "18px",    "$description": "Intro text" },
+      "body":        { "$type": "dimension", "$value": "16px",    "$description": "Standard reading" },
+      "body-sm":     { "$type": "dimension", "$value": "15px",    "$description": "Secondary body" },
+      "caption-lg":  { "$type": "dimension", "$value": "14px",    "$description": "Sub-labels" },
+      "caption":     { "$type": "dimension", "$value": "13px",    "$description": "Metadata" },
+      "label":       { "$type": "dimension", "$value": "12px",    "$description": "Button text" },
+      "micro":       { "$type": "dimension", "$value": "11px",    "$description": "Tiny labels" },
+      "tiny":        { "$type": "dimension", "$value": "10px",    "$description": "Overline" }
+    },
+
+    "lineHeight": {
+      "tight":   { "$type": "number", "$value": 1.00 },
+      "snug":    { "$type": "number", "$value": 1.25 },
+      "normal":  { "$type": "number", "$value": 1.50 },
+      "relaxed": { "$type": "number", "$value": 1.60 }
+    },
+
+    "letterSpacing": {
+      "tightest": { "$type": "dimension", "$value": "-1.584px", "$description": "72px display" },
+      "tighter":  { "$type": "dimension", "$value": "-1.056px", "$description": "48px display" },
+      "tight":    { "$type": "dimension", "$value": "-0.704px", "$description": "32px heading" },
+      "snug":     { "$type": "dimension", "$value": "-0.24px",  "$description": "20px h3" },
+      "normal":   { "$type": "dimension", "$value": "0px",      "$description": "Body and below" }
+    }
+  },
+
+  "spacing": {
+    "$description": "8px base spacing scale with micro-adjustments",
+
+    "base": { "$type": "dimension", "$value": "8px" },
+    "scale": {
+      "0":   { "$type": "dimension", "$value": "0px" },
+      "1":   { "$type": "dimension", "$value": "4px" },
+      "2":   { "$type": "dimension", "$value": "8px" },
+      "3":   { "$type": "dimension", "$value": "12px" },
+      "4":   { "$type": "dimension", "$value": "16px" },
+      "5":   { "$type": "dimension", "$value": "20px" },
+      "6":   { "$type": "dimension", "$value": "24px" },
+      "7":   { "$type": "dimension", "$value": "28px" },
+      "8":   { "$type": "dimension", "$value": "32px" },
+      "9":   { "$type": "dimension", "$value": "36px" },
+      "10":  { "$type": "dimension", "$value": "40px" },
+      "12":  { "$type": "dimension", "$value": "48px" },
+      "16":  { "$type": "dimension", "$value": "64px" },
+      "20":  { "$type": "dimension", "$value": "80px" },
+      "24":  { "$type": "dimension", "$value": "96px" }
+    }
+  },
+
+  "borderRadius": {
+    "$description": "Border radius scale",
+
+    "micro":   { "$type": "dimension", "$value": "2px" },
+    "standard": { "$type": "dimension", "$value": "4px" },
+    "comfortable": { "$type": "dimension", "$value": "6px" },
+    "card":    { "$type": "dimension", "$value": "8px" },
+    "panel":   { "$type": "dimension", "$value": "12px" },
+    "large":   { "$type": "dimension", "$value": "22px" },
+    "pill":    { "$type": "dimension", "$value": "9999px" },
+    "circle":  { "$type": "dimension", "$value": "50%" }
+  },
+
+  "motion": {
+    "$description": "Motion tokens for brand presentation",
+
+    "duration": {
+      "instant":  { "$type": "duration", "$value": "0ms" },
+      "fast":     { "$type": "duration", "$value": "100ms" },
+      "normal":   { "$type": "duration", "$value": "200ms" },
+      "slow":     { "$type": "duration", "$value": "300ms" },
+      "slower":   { "$type": "duration", "$value": "500ms" }
+    },
+
+    "easing": {
+      "ease-out":   { "$type": "easing", "$value": "cubic-bezier(0.33, 1, 0.68, 1)" },
+      "ease-in":    { "$type": "easing", "$value": "cubic-bezier(0.32, 0, 0.67, 0)" },
+      "ease-in-out": { "$type": "easing", "$value": "cubic-bezier(0.65, 0, 0.35, 1)" },
+      "spring":     { "$type": "easing", "$value": "cubic-bezier(0.34, 1.56, 0.64, 1)" }
+    }
+  }
+}

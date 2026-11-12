@@ -4,26 +4,24 @@
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/Baseflow/LottieXamarin</PackageProjectUrl>
     <PackageIconUrl>https://raw.githubusercontent.com/Baseflow/LottieXamarin/develop/icon.png</PackageIconUrl>
-    <!--<PackageIcon>icon.png</PackageIcon>
-    <PackageIconFullPath>$(MSBuildThisFileDirectory)icon.png</PackageIconFullPath>-->
     <Authors>Martijn van Dijk</Authors>
     <Owners>martijn00, Baseflow</Owners>
-    <PackageTags>xamarin, monodroid, C#, xamarin.android, Forms, android, Lottie, animation, airbnb</PackageTags>
+    <PackageTags>xamarin, monodroid, C#, xamarin.android, Forms, android, Lottie, animation, airbnb, maui, net11</PackageTags>
     <PackageReleaseNotes>https://github.com/Baseflow/LottieXamarin/releases</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <NeutralLanguage>en-US</NeutralLanguage>
     <MinClientVersion>2.12</MinClientVersion>
-	
+
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <RepositoryUrl>https://github.com/Baseflow/LottieXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
-    <Version>5.0.0</Version>
-	
-    <!--<Nullable>enable</Nullable>-->
+    <Version>6.7.1</Version>
+
+    <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <LangVersion>11.0</LangVersion>
-    <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114;NU1603</NoWarn>
+    <LangVersion>15</LangVersion>
+    <NoWarn>$(NoWarn);1591;1701;1702;1705;VSX1000;CS0109;CS0108;CS0618;CS0114;NU1603;CS8618;CS8765</NoWarn>
     <Platform>AnyCPU</Platform>
 
     <EnableNETAnalyzers>true</EnableNETAnalyzers>
@@ -36,7 +34,6 @@
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <PublishReadyToRun Condition=" '$(PublishReadyToRun)' == '' and '$(OutputType)' == '' or '$(OutputType)' == 'Library' ">false</PublishReadyToRun>
-    <!--<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
     <IncludeSymbols>true</IncludeSymbols>
     <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
@@ -62,13 +59,8 @@
     <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" PackagePath="\" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(IsLibraryProject)' == 'true'">
-    <None Include="$(MSBuildThisFileDirectory)\LICENSE" Pack="true" PackagePath="\" />
-    <None Include="$(MSBuildThisFileDirectory)\icon.png" Pack="true" PackagePath="\" />
-  </ItemGroup>
-
   <ItemGroup>
-    <PackageReference Include="Roslynator.Analyzers" Version="4.2.0">
+    <PackageReference Include="Roslynator.Analyzers" Version="4.14.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -77,6 +69,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="IDisposableAnalyzers" Version="4.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.CodeAnalysis.NetAnalyzers" Version="9.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
