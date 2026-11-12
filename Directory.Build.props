@@ -1,19 +1,19 @@
 ﻿<Project>
   <PropertyGroup>
-    <Copyright>Copyright (c) Baseflow</Copyright>
+    <Copyright>Copyright (c) Baseflow; Copyright (c) nkkinsoft (fork modifications)</Copyright>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/Baseflow/LottieXamarin</PackageProjectUrl>
-    <PackageIconUrl>https://raw.githubusercontent.com/Baseflow/LottieXamarin/develop/icon.png</PackageIconUrl>
-    <Authors>Martijn van Dijk</Authors>
-    <Owners>martijn00, Baseflow</Owners>
-    <PackageTags>xamarin, monodroid, C#, xamarin.android, Forms, android, Lottie, animation, airbnb, maui, net11</PackageTags>
-    <PackageReleaseNotes>https://github.com/Baseflow/LottieXamarin/releases</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/Nkkinsoft/LottieXamarin</PackageProjectUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/Nkkinsoft/LottieXamarin/develop/icon.png</PackageIconUrl>
+    <Authors>Martijn van Dijk, nkkinsoft</Authors>
+    <Owners>nkkinsoft</Owners>
+    <PackageTags>xamarin, monodroid, C#, xamarin.android, Forms, android, Lottie, animation, airbnb, maui, net10, net11</PackageTags>
+    <PackageReleaseNotes>https://github.com/Nkkinsoft/LottieXamarin/releases</PackageReleaseNotes>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <NeutralLanguage>en-US</NeutralLanguage>
     <MinClientVersion>2.12</MinClientVersion>
 
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <RepositoryUrl>https://github.com/Baseflow/LottieXamarin</RepositoryUrl>
+    <RepositoryUrl>https://github.com/Nkkinsoft/LottieXamarin</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Product>$(AssemblyName) ($(TargetFramework))</Product>
     <Version>6.7.1</Version>
